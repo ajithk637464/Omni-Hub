@@ -1,4 +1,5 @@
 export type IconName =
+  | "alien"
   | "arrow-right"
   | "bell"
   | "briefcase"
@@ -6,7 +7,13 @@ export type IconName =
   | "chevron-down"
   | "grid"
   | "help"
+  | "history"
   | "more"
+  | "omnitrix"
   | "plus"
+  | "ranking"
   | "search"
+  | "settings"
+  | "swords"
+  | "trophy"
   | "users";

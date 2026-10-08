@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import DashboardSidebar from "@/components/dashboard/dashboard-sidebar";
+import DashboardBreadcrumb from "@/components/dashboard/dashboard-breadcrumb";
 import Icon from "@/components/ui/icon";
 
 export default function DashboardShell({
@@ -12,9 +13,7 @@ export default function DashboardShell({
       <DashboardSidebar />
       <main className="dashboard-main">
         <header className="topbar">
-          <div className="breadcrumb">
-            Workspace <span aria-hidden="true">/</span> <strong>Dashboard</strong>
-          </div>
+          <DashboardBreadcrumb />
           <div className="topbar-actions">
             <label className="search-box">
               <Icon name="search" />
