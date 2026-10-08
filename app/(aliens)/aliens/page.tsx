@@ -1,7 +1,5 @@
+import AliensDirectory from "@/components/aliens/aliens-directory";
+
 export default function AliensPage() {
-    return (
-        <>  
-            <h1>Aliens</h1>
-        </>
-    )
+  return <AliensDirectory />;
 }

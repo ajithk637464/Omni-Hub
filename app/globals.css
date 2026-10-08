@@ -1220,3 +1220,1081 @@ a {
     padding-left: 12px;
   }
 }
+
+body:has(.aliens-directory) .topbar {
+  border-bottom-color: #20303b;
+  background: rgb(10 19 27 / 96%);
+}
+
+body:has(.aliens-directory) .breadcrumb {
+  color: #7f929e;
+}
+
+body:has(.aliens-directory) .breadcrumb strong {
+  color: #e8f0f1;
+}
+
+body:has(.aliens-directory) .search-box,
+body:has(.aliens-directory) .icon-button {
+  border-color: #243640;
+  background: #101d26;
+  color: #879ca8;
+}
+
+body:has(.aliens-directory) .search-box input {
+  color: #e4ecee;
+}
+
+.aliens-directory {
+  --alien-green: #a5ee62;
+  min-height: calc(100vh - 68px);
+  margin: -34px -38px -48px;
+  padding: 26px 38px 22px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 4% 12%, rgb(28 91 66 / 19%), transparent 34%),
+    radial-gradient(ellipse at 96% 15%, rgb(22 74 95 / 16%), transparent 36%),
+    #09131b;
+  color: #eef4f3;
+}
+
+.aliens-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.aliens-title-group {
+  min-width: 0;
+}
+
+.aliens-title-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.aliens-title-mark {
+  display: grid;
+  width: 31px;
+  height: 31px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgb(163 237 95 / 28%);
+  border-radius: 9px;
+  background: rgb(92 180 72 / 12%);
+  color: #9deb63;
+}
+
+.aliens-title-mark svg {
+  width: 18px;
+  height: 18px;
+}
+
+.aliens-title-line h1 {
+  margin: 0;
+  font-size: clamp(19px, 2vw, 25px);
+  font-weight: 750;
+  letter-spacing: -0.045em;
+  line-height: 1.1;
+}
+
+.aliens-total {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 9px;
+  border: 1px solid #263944;
+  border-radius: 7px;
+  background: #12232d;
+  color: #a7b8be;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.aliens-total strong {
+  color: var(--alien-green);
+  font-size: 12px;
+}
+
+.aliens-title-group > p {
+  margin: 7px 0 0 41px;
+  color: #8da1a9;
+  font-size: 11px;
+}
+
+.aliens-filters {
+  display: flex;
+  flex: 0 1 auto;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 7px;
+}
+
+.alien-filter {
+  display: flex;
+  height: 34px;
+  align-items: center;
+  gap: 7px;
+  padding: 0 9px;
+  border: 1px solid #263944;
+  border-radius: 7px;
+  background: #0d1a23;
+  color: #8297a1;
+}
+
+.alien-filter > span {
+  font-size: 10px;
+}
+
+.alien-filter select {
+  max-width: 116px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #e6eeee;
+  cursor: pointer;
+  font-size: 10px;
+}
+
+.alien-filter select option {
+  background: #0e1a22;
+  color: #e6eeee;
+}
+
+.alien-search {
+  display: flex;
+  width: 184px;
+  height: 34px;
+  align-items: center;
+  gap: 8px;
+  padding: 0 9px;
+  border: 1px solid #263944;
+  border-radius: 7px;
+  background: #0d1a23;
+  color: #8195a0;
+}
+
+.alien-search svg {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
+}
+
+.alien-search input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #e6eeee;
+  font-size: 10px;
+}
+
+.alien-search input::placeholder {
+  color: #71848f;
+}
+
+.alien-filter:focus-within,
+.alien-search:focus-within {
+  border-color: #6eb951;
+  box-shadow: 0 0 0 2px rgb(119 202 83 / 12%);
+}
+
+.aliens-summary {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 17px 0 15px;
+  color: #91a4aa;
+  font-size: 10px;
+}
+
+.aliens-summary > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.summary-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #647882;
+}
+
+.summary-dot-green {
+  background: #7de268;
+  box-shadow: 0 0 9px rgb(125 226 104 / 60%);
+}
+
+.summary-dot-muted {
+  background: #788690;
+}
+
+.aliens-showcase {
+  display: grid;
+  min-height: 495px;
+  grid-template-columns: minmax(268px, 0.78fr) minmax(0, 1.75fr);
+  align-items: stretch;
+  gap: 12px;
+}
+
+.featured-alien,
+.alien-roster {
+  min-width: 0;
+  border: 1px solid #1d303a;
+  border-radius: 12px;
+  background: linear-gradient(155deg, rgb(16 34 42 / 95%), rgb(9 20 28 / 96%));
+  box-shadow: 0 14px 36px rgb(0 0 0 / 16%);
+}
+
+.featured-alien {
+  align-self: stretch;
+  overflow: hidden;
+  padding: 15px;
+}
+
+.featured-heading,
+.roster-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.aliens-section-kicker {
+  color: #8ee268;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.featured-heading h2,
+.roster-heading h2 {
+  margin: 4px 0 0;
+  color: #f0f5f2;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.alien-status-badge {
+  flex: 0 0 auto;
+  padding: 5px 7px;
+  border: 1px solid #34444d;
+  border-radius: 999px;
+  background: #202c33;
+  color: #a2b0b5;
+  font-size: 9px;
+}
+
+.alien-status-badge.is-unlocked {
+  border-color: rgb(106 200 95 / 31%);
+  background: rgb(49 122 62 / 17%);
+  color: #a2e986;
+}
+
+.featured-art {
+  position: relative;
+  display: grid;
+  height: 168px;
+  place-items: center;
+  margin: 8px -5px 0;
+  overflow: hidden;
+  border-radius: 10px;
+  background:
+    radial-gradient(ellipse at 50% 72%, rgb(111 205 95 / 20%), transparent 55%),
+    linear-gradient(180deg, rgb(11 26 31 / 8%), rgb(11 26 31 / 4%) 60%, #102029);
+}
+
+.featured-art-glow {
+  position: absolute;
+  bottom: -29px;
+  width: 180px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgb(117 224 86 / 13%);
+  filter: blur(22px);
+}
+
+.alien-portrait {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.alien-portrait img {
+  object-fit: contain;
+  object-position: center bottom;
+  filter: drop-shadow(0 8px 14px rgb(0 0 0 / 33%));
+}
+
+.alien-portrait-fallback {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  align-content: center;
+  justify-items: center;
+  gap: 4px;
+  color: rgb(178 228 159 / 73%);
+}
+
+.alien-portrait-fallback svg {
+  width: 51px;
+  height: 51px;
+  stroke-width: 1.1;
+}
+
+.alien-portrait-fallback span {
+  color: #d4e9d0;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.featured-art .alien-portrait {
+  inset: 3px 5px 0;
+}
+
+.featured-art .alien-portrait-fallback svg {
+  width: 70px;
+  height: 70px;
+}
+
+.featured-level {
+  position: absolute;
+  z-index: 1;
+  right: 8px;
+  bottom: 8px;
+  padding: 5px 7px;
+  border: 1px solid rgb(162 232 115 / 25%);
+  border-radius: 6px;
+  background: rgb(8 21 26 / 82%);
+  color: #b8ec91;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.featured-copy {
+  padding: 4px 0 0;
+}
+
+.featured-name-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.featured-name-row h3 {
+  margin: 0;
+  color: #f4f7f5;
+  font-size: 19px;
+  font-weight: 750;
+  letter-spacing: -0.035em;
+}
+
+.featured-name-row p {
+  margin: 4px 0 0;
+  color: #a3b3b5;
+  font-size: 10px;
+}
+
+.featured-name-row p span {
+  padding: 0 3px;
+  color: #6a8487;
+}
+
+.alien-level-orb {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgb(151 222 96 / 38%);
+  border-radius: 50%;
+  background: rgb(70 135 58 / 16%);
+  color: #b2eb79;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.featured-description {
+  display: -webkit-box;
+  margin: 9px 0 0;
+  overflow: hidden;
+  color: #9bafb2;
+  font-size: 10px;
+  line-height: 1.55;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.featured-level-track {
+  margin-top: 15px;
+}
+
+.featured-level-track > div {
+  display: flex;
+  justify-content: space-between;
+  color: #b8c6c4;
+  font-size: 10px;
+}
+
+.featured-level-track strong {
+  color: #f0c767;
+  font-weight: 600;
+}
+
+.level-track {
+  display: block;
+  height: 6px;
+  margin-top: 7px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #1d303b;
+}
+
+.level-track > span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #75ce54, #b9e965);
+  box-shadow: 0 0 12px rgb(134 221 84 / 24%);
+}
+
+.featured-powers {
+  margin-top: 17px;
+  padding-top: 12px;
+  border-top: 1px solid #21343d;
+}
+
+.featured-powers-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #dce6e2;
+  font-size: 10px;
+  font-weight: 650;
+}
+
+.featured-powers-heading span:last-child {
+  color: #81979a;
+  font-size: 9px;
+  font-weight: 400;
+}
+
+.featured-powers ul {
+  display: grid;
+  gap: 8px;
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.featured-powers li {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 8px;
+}
+
+.power-orb {
+  display: grid;
+  width: 25px;
+  height: 25px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid #314b47;
+  border-radius: 8px;
+  background: #142923;
+  color: #96dc72;
+}
+
+.power-orb svg {
+  width: 14px;
+  height: 14px;
+}
+
+.power-copy {
+  display: grid;
+  min-width: 0;
+  flex: 1;
+  gap: 3px;
+}
+
+.power-copy strong {
+  overflow: hidden;
+  color: #dce7e2;
+  font-size: 9px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.power-copy > span {
+  color: #849b9c;
+  font-size: 8px;
+}
+
+.main-power-label {
+  margin-left: 5px;
+  color: #96da74;
+  font-size: 7px;
+  letter-spacing: 0.07em;
+}
+
+.power-level {
+  flex: 0 0 auto;
+  color: #e5c271;
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.power-level small {
+  color: #86989a;
+  font-size: 8px;
+  font-weight: 400;
+}
+
+.no-powers {
+  margin: 10px 0 0;
+  color: #859b9d;
+  font-size: 9px;
+}
+
+.featured-power-note {
+  margin: 10px 0 0;
+  color: #91a5a5;
+  font-size: 9px;
+}
+
+.featured-power-note strong {
+  color: #b8e88f;
+  font-weight: 600;
+}
+
+.alien-roster {
+  padding: 15px;
+  overflow: hidden;
+}
+
+.roster-heading {
+  align-items: center;
+  margin-bottom: 13px;
+}
+
+.roster-heading h2 {
+  font-size: 17px;
+}
+
+.roster-heading p {
+  margin: 4px 0 0;
+  color: #879da2;
+  font-size: 9px;
+}
+
+.roster-count {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid #273d46;
+  border-radius: 9px;
+  background: #14242d;
+  color: #a8c0bc;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.alien-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-content: start;
+  gap: 10px;
+}
+
+.alien-card {
+  --card-accent: #52c875;
+  display: flex;
+  min-width: 0;
+  min-height: 218px;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--card-accent) 55%, #1a2d36);
+  border-radius: 10px;
+  background: linear-gradient(
+    157deg,
+    color-mix(in srgb, var(--card-accent) 26%, #12242c),
+    #101d26 74%
+  );
+  box-shadow: inset 0 1px rgb(255 255 255 / 4%);
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.alien-card:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--card-accent) 82%, white);
+  box-shadow: 0 9px 22px rgb(0 0 0 / 19%);
+}
+
+.alien-tone-0 {
+  --card-accent: #e65b61;
+}
+
+.alien-tone-1 {
+  --card-accent: #44b9e8;
+}
+
+.alien-tone-2 {
+  --card-accent: #62d467;
+}
+
+.alien-tone-3 {
+  --card-accent: #eca84a;
+}
+
+.alien-tone-4 {
+  --card-accent: #a2a7b9;
+}
+
+.alien-tone-5 {
+  --card-accent: #76c5bf;
+}
+
+.alien-card-art {
+  position: relative;
+  height: 104px;
+  flex: 0 0 auto;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 80%, color-mix(in srgb, var(--card-accent) 27%, transparent), transparent 70%),
+    linear-gradient(180deg, rgb(255 255 255 / 3%), transparent);
+}
+
+.alien-card-art .alien-portrait {
+  inset: 3px 7px 0;
+}
+
+.alien-card-art .alien-portrait-fallback {
+  color: color-mix(in srgb, var(--card-accent) 66%, #d7e7dd);
+}
+
+.alien-card-art .alien-portrait-fallback svg {
+  width: 45px;
+  height: 45px;
+}
+
+.alien-card-art .alien-portrait-fallback span {
+  color: #f1f4ef;
+  font-size: 9px;
+}
+
+.alien-card-level {
+  position: absolute;
+  z-index: 1;
+  top: 8px;
+  right: 8px;
+  padding: 4px 5px;
+  border: 1px solid rgb(255 255 255 / 11%);
+  border-radius: 5px;
+  background: rgb(7 17 24 / 70%);
+  color: #d3e0dc;
+  font-size: 8px;
+  font-weight: 650;
+}
+
+.alien-card-copy {
+  padding: 7px 9px 0;
+}
+
+.alien-card-title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.alien-card-title h3 {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  color: #f0f5f1;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.alien-card-title > span {
+  max-width: 45%;
+  overflow: hidden;
+  color: color-mix(in srgb, var(--card-accent) 68%, #dce7e2);
+  font-size: 8px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.alien-card-planet {
+  margin: 4px 0 0;
+  color: #84999e;
+  font-size: 8px;
+}
+
+.alien-card-power {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 6px 0 0;
+  overflow: hidden;
+  color: #a1b3b0;
+  font-size: 8px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.alien-card-power svg {
+  width: 12px;
+  height: 12px;
+  flex: 0 0 auto;
+  color: #9bd776;
+}
+
+.alien-details-button {
+  display: flex;
+  min-height: 30px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+  margin: auto 8px 8px;
+  padding: 0 9px;
+  border: 1px solid color-mix(in srgb, var(--card-accent) 45%, #263840);
+  border-radius: 7px;
+  background: color-mix(in srgb, var(--card-accent) 18%, #12242c);
+  color: #e6efe9;
+  cursor: pointer;
+  font-size: 9px;
+  font-weight: 650;
+  transition: background 140ms ease;
+}
+
+.alien-details-button:hover {
+  background: color-mix(in srgb, var(--card-accent) 30%, #12242c);
+}
+
+.alien-details-button:focus-visible,
+.alien-retry-button:focus-visible {
+  outline: 3px solid rgb(154 229 111 / 40%);
+  outline-offset: 2px;
+}
+
+.alien-details-button svg {
+  width: 13px;
+  height: 13px;
+}
+
+.alien-card.is-locked {
+  border-color: #34434a;
+  background: linear-gradient(155deg, #29343a, #17232a 78%);
+  filter: saturate(0.48);
+}
+
+.alien-card.is-locked .alien-portrait img {
+  opacity: 0.5;
+  filter: grayscale(0.75) brightness(0.68);
+}
+
+.alien-card.is-locked .alien-card-title > span {
+  color: #adb8b7;
+}
+
+.alien-lock-mark {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  transform: translate(-50%, -40%);
+  border: 1px solid rgb(222 232 226 / 26%);
+  border-radius: 50%;
+  background: rgb(13 23 28 / 77%);
+  color: #e1e8e3;
+}
+
+.alien-lock-mark svg {
+  width: 17px;
+  height: 17px;
+}
+
+.roster-empty {
+  display: grid;
+  min-height: 200px;
+  align-content: center;
+  justify-items: center;
+  border: 1px dashed #2a4148;
+  border-radius: 9px;
+  color: #90a7a6;
+  text-align: center;
+}
+
+.roster-empty svg {
+  width: 26px;
+  height: 26px;
+  color: #8bce6d;
+}
+
+.roster-empty p {
+  margin: 10px 0 0;
+  font-size: 10px;
+}
+
+.aliens-state {
+  display: grid;
+  min-height: 340px;
+  align-content: center;
+  justify-items: center;
+  padding: 28px;
+  border: 1px solid #20343d;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #10212a, #0c1921);
+  color: #95a9aa;
+  text-align: center;
+}
+
+.aliens-state h2 {
+  margin: 14px 0 0;
+  color: #e8efeb;
+  font-size: 16px;
+  font-weight: 650;
+}
+
+.aliens-state > p {
+  max-width: 500px;
+  margin: 7px 0 0;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.aliens-state .aliens-error-hint {
+  color: #748e92;
+  font-size: 9px;
+  overflow-wrap: anywhere;
+}
+
+.aliens-state-icon {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid #395345;
+  border-radius: 14px;
+  background: #182d29;
+  color: #a2e77a;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.aliens-state-icon svg {
+  width: 21px;
+  height: 21px;
+}
+
+.alien-loading-spinner {
+  width: 30px;
+  height: 30px;
+  border: 2px solid #273f45;
+  border-top-color: #9ce46d;
+  border-radius: 50%;
+  animation: alien-spin 850ms linear infinite;
+}
+
+@keyframes alien-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.alien-retry-button {
+  min-height: 34px;
+  margin-top: 16px;
+  padding: 0 12px;
+  border: 1px solid #4a7747;
+  border-radius: 7px;
+  background: #1d392b;
+  color: #c5efae;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 650;
+}
+
+.aliens-footer-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin: 15px 0 0;
+  color: #687f84;
+  font-size: 9px;
+  text-align: center;
+}
+
+.aliens-footer-note svg {
+  width: 13px;
+  height: 13px;
+  color: #86cc68;
+}
+
+@media (max-width: 1100px) {
+  .aliens-directory {
+    margin-right: -24px;
+    margin-left: -24px;
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  .aliens-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .aliens-filters {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .alien-search {
+    flex: 1;
+  }
+
+  .aliens-showcase {
+    grid-template-columns: minmax(245px, 0.78fr) minmax(0, 1.4fr);
+  }
+
+  .alien-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .aliens-directory {
+    min-height: calc(100vh - 55px);
+    margin: -24px -18px -35px;
+    padding: 20px 18px 25px;
+  }
+
+  .aliens-title-line {
+    flex-wrap: wrap;
+  }
+
+  .aliens-title-group > p {
+    margin-left: 0;
+  }
+
+  .aliens-filters {
+    flex-wrap: wrap;
+  }
+
+  .alien-search {
+    min-width: 100%;
+  }
+
+  .aliens-showcase {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .featured-alien {
+    padding: 14px;
+  }
+
+  .featured-art {
+    height: 200px;
+  }
+
+  .alien-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .aliens-directory {
+    padding-right: 13px;
+    padding-left: 13px;
+  }
+
+  .aliens-title-line h1 {
+    font-size: 19px;
+  }
+
+  .aliens-total {
+    padding: 5px 7px;
+    font-size: 9px;
+  }
+
+  .aliens-summary {
+    gap: 12px;
+    font-size: 9px;
+  }
+
+  .alien-filter {
+    flex: 1 1 30%;
+    justify-content: space-between;
+    gap: 4px;
+    padding: 0 7px;
+  }
+
+  .alien-filter > span {
+    font-size: 9px;
+  }
+
+  .alien-filter select {
+    max-width: 82px;
+    font-size: 9px;
+  }
+
+  .alien-card-grid {
+    gap: 8px;
+  }
+
+  .alien-card {
+    min-height: 210px;
+  }
+
+  .alien-card-art {
+    height: 93px;
+  }
+
+  .alien-card-copy {
+    padding-right: 7px;
+    padding-left: 7px;
+  }
+
+  .alien-details-button {
+    margin-right: 6px;
+    margin-left: 6px;
+    padding: 0 7px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .alien-loading-spinner {
+    animation-duration: 2s;
+  }
+
+  .alien-card,
+  .alien-details-button {
+    transition: none;
+  }
+}
