@@ -132,6 +132,9 @@ export default function AliensDirectory() {
   const [levelFilter, setLevelFilter] = useState<LevelFilter>("all");
   const [statusFilter, setStatusFilter] = useState<StatusFilter>("all");
   const [selectedAlienId, setSelectedAlienId] = useState<number | null>(null);
+  const [transformedAlienId, setTransformedAlienId] = useState<number | null>(
+    null,
+  );
   const [retryCount, setRetryCount] = useState(0);
 
   useEffect(() => {
@@ -221,8 +224,6 @@ export default function AliensDirectory() {
   const featuredPowers = [...(featuredAlien?.PowerList ?? [])].sort(
     (first, second) => first.SortOrder - second.SortOrder,
   );
-  const featuredMainPower =
-    featuredPowers.find((power) => power.IsMainPower) ?? featuredPowers[0];
 
   return (
     <section className="aliens-directory" aria-labelledby="aliens-title">
@@ -366,91 +367,119 @@ export default function AliensDirectory() {
             <aside className="featured-alien">
               <div className="featured-heading">
                 <div>
-                  <span className="aliens-section-kicker">Your roster</span>
                   <h2>Featured Alien</h2>
+                  <p>
+                    {transformedAlienId === featuredAlien.AlienId
+                      ? "Currently transformed"
+                      : `Currently ${featuredAlien.Unlocked ? "unlocked" : "locked"}`}
+                  </p>
                 </div>
-                <span
-                  className={`alien-status-badge${featuredAlien.Unlocked ? " is-unlocked" : ""}`}
-                >
-                  {featuredAlien.Unlocked ? "Unlocked" : "Locked"}
-                </span>
               </div>
 
-              <div className="featured-art">
-                <div className="featured-art-glow" />
-                <AlienPortrait alien={featuredAlien} large />
-                <span className="featured-level">
-                  LVL {featuredAlien.AlienLevel}
-                </span>
-              </div>
-
-              <div className="featured-copy">
-                <div className="featured-name-row">
-                  <div>
-                    <h3>{featuredAlien.AlienName}</h3>
-                    <p>
-                      {featuredAlien.Species} <span>·</span>{" "}
-                      {featuredAlien.HomePlanet}
-                    </p>
-                  </div>
-                  <span className="alien-level-orb">
-                    {featuredAlien.AlienLevel}
+              <div className="featured-overview">
+                <div className="featured-art">
+                  <div className="featured-art-glow" />
+                  <AlienPortrait alien={featuredAlien} large />
+                  <span className="featured-level">
+                    LVL {featuredAlien.AlienLevel}
                   </span>
                 </div>
-                <p className="featured-description">
-                  {featuredAlien.Description}
-                </p>
+                <div className="featured-copy">
+                  <h3>{featuredAlien.AlienName}</h3>
+                  <dl className="featured-facts">
+                    <div>
+                      <dt>Species</dt>
+                      <dd>{featuredAlien.Species}</dd>
+                    </div>
+                    <div>
+                      <dt>Home Planet</dt>
+                      <dd>{featuredAlien.HomePlanet}</dd>
+                    </div>
+                    <div>
+                      <dt>Alien Level</dt>
+                      <dd>{featuredAlien.AlienLevel}/10</dd>
+                    </div>
+                    <div>
+                      <dt>Powers</dt>
+                      <dd>
+                        {featuredPowers.length > 0
+                          ? featuredPowers
+                              .map((power) => power.AlienPowerName)
+                              .join(", ")
+                          : "None listed"}
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
               </div>
 
-              <div className="featured-level-track">
-                <div>
-                  <span>Alien level</span>
-                  <strong>{featuredAlien.AlienLevel}/10</strong>
-                </div>
-                <span className="level-track">
-                  <span
-                    style={{
-                      width: `${Math.min(Math.max(featuredAlien.AlienLevel, 0), 10) * 10}%`,
-                    }}
-                  />
-                </span>
-              </div>
+              <button
+                aria-pressed={transformedAlienId === featuredAlien.AlienId}
+                className="transform-button"
+                disabled={!featuredAlien.Unlocked}
+                onClick={() =>
+                  setTransformedAlienId((currentId) =>
+                    currentId === featuredAlien.AlienId
+                      ? null
+                      : featuredAlien.AlienId,
+                  )
+                }
+                type="button"
+              >
+                <Icon name="omnitrix" />
+                {transformedAlienId === featuredAlien.AlienId
+                  ? "REVERT"
+                  : "TRANSFORM"}
+              </button>
 
               <div className="featured-powers">
                 <div className="featured-powers-heading">
-                  <span>Power set</span>
-                  <span>{featuredAlien.PowerList.length} abilities</span>
+                  <span>Power levels</span>
+                  <span>{featuredPowers.length} abilities</span>
                 </div>
                 {featuredPowers.length > 0 ? (
                   <ul>
-                    {featuredPowers.slice(0, 3).map((power) => (
-                      <li key={power.AlienPowerId}>
-                        <span className="power-orb">
+                    {featuredPowers.slice(0, 5).map((power, index) => (
+                      <li
+                        className={`power-stat power-stat-${index % 5}`}
+                        key={power.AlienPowerId}
+                      >
+                        <span className="power-stat-icon">
                           <Icon name="omnitrix" />
                         </span>
-                        <span className="power-copy">
-                          <strong>
+                        <span className="power-stat-content">
+                          <span className="power-stat-label">
                             {power.AlienPowerName}
                             {power.IsMainPower && (
                               <span className="main-power-label">MAIN</span>
                             )}
-                          </strong>
-                          <span>{power.PowerType}</span>
+                          </span>
+                          <span
+                            className="power-stat-track"
+                            role="progressbar"
+                            aria-label={`${power.AlienPowerName} power level`}
+                            aria-valuemin={0}
+                            aria-valuemax={10}
+                            aria-valuenow={Math.min(
+                              Math.max(power.PowerLevel, 0),
+                              10,
+                            )}
+                          >
+                            <span
+                              style={{
+                                width: `${Math.min(Math.max(power.PowerLevel, 0), 10) * 10}%`,
+                              }}
+                            />
+                          </span>
                         </span>
                         <span className="power-level">
-                          {power.PowerLevel}
-                          <small>/10</small>
+                          {power.PowerLevel}/10
                         </span>
                       </li>
                     ))}
                   </ul>
                 ) : (
                   <p className="no-powers">No powers listed for this alien.</p>
-                )}
-                {featuredMainPower && (
-                  <p className="featured-power-note">
-                    Signature ability: <strong>{featuredMainPower.AlienPowerName}</strong>
-                  </p>
                 )}
               </div>
             </aside>
@@ -494,7 +523,10 @@ export default function AliensDirectory() {
                     aria-pressed={featuredAlien?.AlienId === alien.AlienId}
                     className={`alien-card alien-tone-${index % 6}${alien.Unlocked ? "" : " is-locked"}`}
                     key={alien.AlienGuid}
-                    onClick={() => setSelectedAlienId(alien.AlienId)}
+                    onClick={() => {
+                      setSelectedAlienId(alien.AlienId);
+                      setTransformedAlienId(null);
+                    }}
                     type="button"
                   >
                     <div className="alien-card-art" aria-hidden="true">

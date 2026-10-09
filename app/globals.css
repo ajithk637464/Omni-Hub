@@ -1453,7 +1453,7 @@ body:has(.aliens-directory) .search-box input {
 .featured-alien {
   align-self: stretch;
   overflow: hidden;
-  padding: 15px;
+  padding: 0 0 13px;
 }
 
 .featured-heading,
@@ -1462,6 +1462,14 @@ body:has(.aliens-directory) .search-box input {
   align-items: flex-start;
   justify-content: space-between;
   gap: 10px;
+}
+
+.featured-heading {
+  min-height: 46px;
+  align-items: center;
+  padding: 7px 12px;
+  border-bottom: 1px solid rgb(140 226 108 / 30%);
+  background: linear-gradient(105deg, #164829, #10372d);
 }
 
 .aliens-section-kicker {
@@ -1474,45 +1482,42 @@ body:has(.aliens-directory) .search-box input {
 
 .featured-heading h2,
 .roster-heading h2 {
-  margin: 4px 0 0;
+  margin: 0;
   color: #f0f5f2;
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: -0.025em;
 }
 
-.alien-status-badge {
-  flex: 0 0 auto;
-  padding: 5px 7px;
-  border: 1px solid #34444d;
-  border-radius: 999px;
-  background: #202c33;
-  color: #a2b0b5;
+.featured-heading p {
+  margin: 2px 0 0;
+  color: #abc5b6;
   font-size: 9px;
 }
 
-.alien-status-badge.is-unlocked {
-  border-color: rgb(106 200 95 / 31%);
-  background: rgb(49 122 62 / 17%);
-  color: #a2e986;
+.featured-overview {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px 0;
 }
 
 .featured-art {
   position: relative;
   display: grid;
-  height: 168px;
+  height: 180px;
   place-items: center;
-  margin: 8px -5px 0;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 8px;
   background:
-    radial-gradient(ellipse at 50% 72%, rgb(111 205 95 / 20%), transparent 55%),
-    linear-gradient(180deg, rgb(11 26 31 / 8%), rgb(11 26 31 / 4%) 60%, #102029);
+    radial-gradient(ellipse at 50% 78%, rgb(111 205 95 / 24%), transparent 60%),
+    linear-gradient(180deg, rgb(11 26 31 / 2%), #102029);
 }
 
 .featured-art-glow {
   position: absolute;
-  bottom: -29px;
+  bottom: -18px;
   width: 180px;
   height: 80px;
   border-radius: 50%;
@@ -1556,120 +1561,115 @@ body:has(.aliens-directory) .search-box input {
 }
 
 .featured-art .alien-portrait {
-  inset: 3px 5px 0;
+  inset: 0;
 }
 
 .featured-art .alien-portrait-fallback svg {
-  width: 70px;
-  height: 70px;
+  width: 54px;
+  height: 54px;
 }
 
 .featured-level {
   position: absolute;
   z-index: 1;
-  right: 8px;
-  bottom: 8px;
-  padding: 5px 7px;
+  right: 5px;
+  bottom: 5px;
+  padding: 4px 5px;
   border: 1px solid rgb(162 232 115 / 25%);
   border-radius: 6px;
   background: rgb(8 21 26 / 82%);
   color: #b8ec91;
-  font-size: 9px;
+  font-size: 8px;
   font-weight: 700;
   letter-spacing: 0.05em;
 }
 
 .featured-copy {
-  padding: 4px 0 0;
+  min-width: 0;
 }
 
-.featured-name-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-.featured-name-row h3 {
-  margin: 0;
+.featured-copy h3 {
+  margin: 0 0 9px;
+  overflow: hidden;
   color: #f4f7f5;
-  font-size: 19px;
+  font-size: 14px;
   font-weight: 750;
   letter-spacing: -0.035em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.featured-name-row p {
-  margin: 4px 0 0;
-  color: #a3b3b5;
-  font-size: 10px;
-}
-
-.featured-name-row p span {
-  padding: 0 3px;
-  color: #6a8487;
-}
-
-.alien-level-orb {
+.featured-facts {
   display: grid;
-  width: 32px;
-  height: 32px;
-  flex: 0 0 auto;
-  place-items: center;
-  border: 1px solid rgb(151 222 96 / 38%);
-  border-radius: 50%;
-  background: rgb(70 135 58 / 16%);
-  color: #b2eb79;
-  font-size: 12px;
-  font-weight: 700;
+  gap: 6px;
+  margin: 0;
 }
 
-.featured-description {
+.featured-facts > div {
+  min-width: 0;
+}
+
+.featured-facts dt {
+  color: #82969a;
+  font-size: 8px;
+}
+
+.featured-facts dd {
   display: -webkit-box;
-  margin: 9px 0 0;
+  margin: 1px 0 0;
   overflow: hidden;
-  color: #9bafb2;
-  font-size: 10px;
-  line-height: 1.55;
+  color: #d4dfdc;
+  font-size: 9px;
+  line-height: 1.3;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
 }
 
-.featured-level-track {
-  margin-top: 15px;
-}
-
-.featured-level-track > div {
+.transform-button {
   display: flex;
-  justify-content: space-between;
-  color: #b8c6c4;
-  font-size: 10px;
+  min-height: 28px;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin: 8px 10px 0;
+  border: 1px solid #56c653;
+  border-radius: 7px;
+  background: linear-gradient(180deg, #41bd4a, #259a3d);
+  box-shadow: 0 3px 12px rgb(53 185 66 / 20%);
+  color: #f3fff1;
+  cursor: pointer;
+  font-size: 9px;
+  font-weight: 750;
+  letter-spacing: 0.045em;
+  transition: filter 140ms ease, opacity 140ms ease;
+  width: calc(100% - 20px);
 }
 
-.featured-level-track strong {
-  color: #f0c767;
-  font-weight: 600;
+.transform-button:hover:not(:disabled) {
+  filter: brightness(1.1);
 }
 
-.level-track {
-  display: block;
-  height: 6px;
-  margin-top: 7px;
-  overflow: hidden;
-  border-radius: 999px;
-  background: #1d303b;
+.transform-button:focus-visible {
+  outline: 3px solid rgb(154 229 111 / 40%);
+  outline-offset: 2px;
 }
 
-.level-track > span {
-  display: block;
-  height: 100%;
-  border-radius: inherit;
-  background: linear-gradient(90deg, #75ce54, #b9e965);
-  box-shadow: 0 0 12px rgb(134 221 84 / 24%);
+.transform-button:disabled {
+  border-color: #3b5147;
+  background: #293a33;
+  box-shadow: none;
+  color: #8da397;
+  cursor: not-allowed;
+}
+
+.transform-button svg {
+  width: 13px;
+  height: 13px;
 }
 
 .featured-powers {
-  margin-top: 17px;
-  padding-top: 12px;
+  margin: 9px 10px 0;
+  padding-top: 8px;
   border-top: 1px solid #21343d;
 }
 
@@ -1678,104 +1678,128 @@ body:has(.aliens-directory) .search-box input {
   align-items: center;
   justify-content: space-between;
   color: #dce6e2;
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 650;
 }
 
 .featured-powers-heading span:last-child {
   color: #81979a;
-  font-size: 9px;
+  font-size: 8px;
   font-weight: 400;
 }
 
 .featured-powers ul {
   display: grid;
-  gap: 8px;
-  margin: 10px 0 0;
+  gap: 7px;
+  margin: 8px 0 0;
   padding: 0;
   list-style: none;
 }
 
 .featured-powers li {
-  display: flex;
+  display: grid;
+  grid-template-columns: 15px minmax(0, 1fr) auto;
   min-width: 0;
   align-items: center;
-  gap: 8px;
+  column-gap: 6px;
+  row-gap: 3px;
 }
 
-.power-orb {
+.power-stat-icon {
   display: grid;
-  width: 25px;
-  height: 25px;
+  width: 15px;
+  height: 15px;
   flex: 0 0 auto;
   place-items: center;
-  border: 1px solid #314b47;
-  border-radius: 8px;
-  background: #142923;
-  color: #96dc72;
+  grid-row: span 2;
+  color: #f0c767;
 }
 
-.power-orb svg {
-  width: 14px;
-  height: 14px;
+.power-stat-icon svg {
+  width: 13px;
+  height: 13px;
 }
 
-.power-copy {
-  display: grid;
+.power-stat-content {
+  display: contents;
+}
+
+.power-stat-label {
   min-width: 0;
-  flex: 1;
-  gap: 3px;
-}
-
-.power-copy strong {
   overflow: hidden;
-  color: #dce7e2;
+  color: #e1e9e5;
   font-size: 9px;
-  font-weight: 600;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.power-copy > span {
-  color: #849b9c;
-  font-size: 8px;
+.power-stat-track {
+  display: block;
+  height: 5px;
+  grid-column: 2;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #24353e;
+}
+
+.power-stat-track > span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: #e9b83b;
+}
+
+.power-stat-1 .power-stat-icon {
+  color: #4acb62;
+}
+
+.power-stat-1 .power-stat-track > span {
+  background: #4acb62;
+}
+
+.power-stat-2 .power-stat-icon {
+  color: #44a9e8;
+}
+
+.power-stat-2 .power-stat-track > span {
+  background: #44a9e8;
+}
+
+.power-stat-3 .power-stat-icon {
+  color: #8dcc57;
+}
+
+.power-stat-3 .power-stat-track > span {
+  background: #8dcc57;
+}
+
+.power-stat-4 .power-stat-icon {
+  color: #e46161;
+}
+
+.power-stat-4 .power-stat-track > span {
+  background: #e46161;
 }
 
 .main-power-label {
-  margin-left: 5px;
+  margin-left: 4px;
   color: #96da74;
   font-size: 7px;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.06em;
 }
 
 .power-level {
-  flex: 0 0 auto;
-  color: #e5c271;
-  font-size: 11px;
-  font-weight: 650;
-}
-
-.power-level small {
-  color: #86989a;
+  grid-column: 3;
+  grid-row: span 2;
+  color: #b8c6c4;
   font-size: 8px;
-  font-weight: 400;
+  white-space: nowrap;
 }
 
 .no-powers {
-  margin: 10px 0 0;
+  margin: 8px 0 0;
   color: #859b9d;
   font-size: 9px;
-}
-
-.featured-power-note {
-  margin: 10px 0 0;
-  color: #91a5a5;
-  font-size: 9px;
-}
-
-.featured-power-note strong {
-  color: #b8e88f;
-  font-weight: 600;
 }
 
 .alien-roster {
