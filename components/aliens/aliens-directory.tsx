@@ -486,25 +486,6 @@ export default function AliensDirectory() {
           )}
 
           <section className="alien-roster" aria-labelledby="roster-title">
-            <div className="roster-heading">
-              <div>
-                <span className="aliens-section-kicker">The collection</span>
-                <h2 id="roster-title">
-                  {statusFilter === "unlocked"
-                    ? "Unlocked Aliens"
-                    : statusFilter === "locked"
-                      ? "Locked Aliens"
-                      : "All Aliens"}
-                </h2>
-                <p>
-                  {rosterAliens.length}{" "}
-                  {rosterAliens.length === 1 ? "alien" : "aliens"} in this view
-                </p>
-              </div>
-              <span className="roster-count">
-                {rosterAliens.length.toString().padStart(2, "0")}
-              </span>
-            </div>
 
             {rosterAliens.length === 0 ? (
               <div className="roster-empty">
