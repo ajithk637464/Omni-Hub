@@ -488,72 +488,42 @@ export default function AliensDirectory() {
               </div>
             ) : (
               <div className="alien-card-grid">
-                {rosterAliens.map((alien, index) => {
-                  const mainPower =
-                    alien.PowerList.find((power) => power.IsMainPower) ??
-                    alien.PowerList[0];
-
-                  return (
-                    <article
-                      className={`alien-card alien-tone-${index % 6}${alien.Unlocked ? "" : " is-locked"}`}
-                      key={alien.AlienGuid}
-                    >
-                      <div className="alien-card-art">
-                        <AlienPortrait alien={alien} />
-                        <span className="alien-card-level">
-                          LVL {alien.AlienLevel}
+                {rosterAliens.map((alien, index) => (
+                  <button
+                    aria-label={`${alien.AlienName}${alien.Unlocked ? "" : ", locked"}`}
+                    aria-pressed={featuredAlien?.AlienId === alien.AlienId}
+                    className={`alien-card alien-tone-${index % 6}${alien.Unlocked ? "" : " is-locked"}`}
+                    key={alien.AlienGuid}
+                    onClick={() => setSelectedAlienId(alien.AlienId)}
+                    type="button"
+                  >
+                    <div className="alien-card-art" aria-hidden="true">
+                      <AlienPortrait alien={alien} />
+                      {!alien.Unlocked && (
+                        <span className="alien-lock-mark">
+                          <svg fill="none" viewBox="0 0 24 24">
+                            <rect
+                              height="10"
+                              rx="2"
+                              stroke="currentColor"
+                              strokeWidth="1.7"
+                              width="14"
+                              x="5"
+                              y="11"
+                            />
+                            <path
+                              d="M8 11V8a4 4 0 0 1 8 0v3"
+                              stroke="currentColor"
+                              strokeLinecap="round"
+                              strokeWidth="1.7"
+                            />
+                          </svg>
                         </span>
-                        {!alien.Unlocked && (
-                          <span className="alien-lock-mark" aria-label="Locked">
-                            <svg
-                              aria-hidden="true"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                            >
-                              <rect
-                                height="10"
-                                rx="2"
-                                stroke="currentColor"
-                                strokeWidth="1.7"
-                                width="14"
-                                x="5"
-                                y="11"
-                              />
-                              <path
-                                d="M8 11V8a4 4 0 0 1 8 0v3"
-                                stroke="currentColor"
-                                strokeLinecap="round"
-                                strokeWidth="1.7"
-                              />
-                            </svg>
-                          </span>
-                        )}
-                      </div>
-                      <div className="alien-card-copy">
-                        <div className="alien-card-title">
-                          <h3>{alien.AlienName}</h3>
-                          <span>{alien.Species}</span>
-                        </div>
-                        <p className="alien-card-planet">{alien.HomePlanet}</p>
-                        {mainPower && (
-                          <p className="alien-card-power">
-                            <Icon name="omnitrix" />
-                            {mainPower.AlienPowerName}
-                          </p>
-                        )}
-                      </div>
-                      <button
-                        aria-pressed={featuredAlien?.AlienId === alien.AlienId}
-                        className="alien-details-button"
-                        onClick={() => setSelectedAlienId(alien.AlienId)}
-                        type="button"
-                      >
-                        View details
-                        <Icon name="arrow-right" />
-                      </button>
-                    </article>
-                  );
-                })}
+                      )}
+                    </div>
+                    <span className="alien-card-name">{alien.AlienName}</span>
+                  </button>
+                ))}
               </div>
             )}
           </section>
